@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf8">
+        <title>Adventure Game</title>
+        <style>
+            #game-window{
+                width: 800px;
+                height: 600px;
+                background-image: url(asset/image/fantasy_001.jpg);
+            }
+            #message-window{
+                position: absolute;
+                top: 400px;
+                left: 100px;
+                width: 600px;
+                height: 150px;
+                background-color: rgb(255,255,255,0.5);
+
+                font-size: 20pt;
+                padding: 3px;
+            }
+            #chara{
+                position: absolute;
+                top:50px;
+                left: 200px;
+                width: 400px;
+
+            }
+        </style>
+        </head>
+    </head>
+    <body>
+        <div id="game-window">
+            <img id="chara" src="asset/image/f127.png">
+            <div id="message-window">
+                    AAAAA
+            </div>
+
+        </div>
+        <audio src="asset/bgm_01.ogg" loop autoplay></audio>
+        <script>
+            var scenairo=[
+                ["TEXT","Hello"],
+                ["TEXT","World"],
+                ["BG","url(asset/image/beach_002.jpg)"],
+                ["TEXT","I am your Mother!!!!!!!!!!"]
+            ];
+            var i=0;
+            var game=document.querySelector("#game-window");
+            message=document.querySelector("#message-window");
+            message.addEventListener("click",()=>{
+            if(i<scenairo.length){
+                switch(scenairo[i][0]){
+                    case "TEXT":
+                    message.innerHTML=scenairo[i][1];
+                    break;
+                    case "BG":
+                    game.style.backgroundImage=scenairo[i][1];
+                    break;
+                }
+        i++;
+        }
+        });
+        </script>
+    </body>
+</html>
